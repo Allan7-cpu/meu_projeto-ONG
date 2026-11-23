@@ -1,20 +1,71 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2 style="color: rgb(108, 47, 169);; font-size: 3em;">Quem Somos?</h2><br>
-<h2>Somos o Projeto ConectaCausa</h2>
-<p style="font-size: 20px;">O ConectaCausa é uma plataforma que conecta pessoas a ONGs de diferentes áreas, como
-    combate à fome, proteção animal e educação.
-    Nosso objetivo é facilitar o apoio a causas sociais, aproximando quem quer ajudar de organizações que precisam
-    de doações, voluntários e visibilidade.</p><br>
 
-<div class="agradecimento">
-    <h3>Obrigado pela sua Solidariedade!</h3>
-    <p style="font-size: 20px;">Graças ao seu apoio, estamos conseguindo transformar a vida de milhares de pessoas.
-        Cada doação é um
-        passo em direção a um Brasil sem fome. A sua generosidade nos ajuda a continuar esse trabalho tão
-        importante. <strong>Você é a razão do nosso sucesso!</strong></p>
-</div>
-<p style="font-size: 20px;">
-    Caso queira falar com a ConectaCausa, nosso e-mail de contato é:contato@conectacausa.org
-</p>
+<section class="sobre-topo">
+    <h1>Quem somos</h1>
+    <p class="sobre-destaque">O ConectaCausa é uma plataforma que conecta pessoas a ONGs de diferentes áreas.</p>
+</section>
+
+<section class="sobre-secao">
+    <h2>Nossa missão</h2>
+    <p>
+        Facilitar o apoio a causas sociais, aproximando quem quer ajudar das organizações
+        que precisam de doações, voluntários e visibilidade.
+    </p>
+</section>
+
+<section class="sobre-secao">
+    <h2>Áreas de atuação</h2>
+    <div class="sobre-grid">
+        <div class="sobre-item">
+            <h3>Combate à fome</h3>
+            <p>Organizações que levam alimento a quem mais precisa.</p>
+        </div>
+        <div class="sobre-item">
+            <h3>Proteção animal</h3>
+            <p>Instituições dedicadas ao resgate, cuidado e adoção de animais.</p>
+        </div>
+        <div class="sobre-item">
+            <h3>Educação</h3>
+            <p>Projetos que ampliam o acesso ao conhecimento e a novas oportunidades.</p>
+        </div>
+    </div>
+</section>
+
+<section class="sobre-secao">
+    <h2>Como você pode ajudar</h2>
+    <div class="sobre-grid">
+        <div class="sobre-item">
+            <h3>Doações</h3>
+            <p>Apoie ONGs que precisam de recursos para continuar seu trabalho.</p>
+        </div>
+        <div class="sobre-item">
+            <h3>Voluntariado</h3>
+            <p>Doe seu tempo e suas habilidades para uma causa em que você acredita.</p>
+        </div>
+        <div class="sobre-item">
+            <h3>Visibilidade</h3>
+            <p>Divulgue as ONGs e ajude mais pessoas a conhecer cada causa.</p>
+        </div>
+    </div>
+</section>
+
+<section class="sobre-agradecimento">
+    <h2>Obrigado pela sua solidariedade!</h2>
+    <p>
+        Graças ao seu apoio, estamos conseguindo transformar a vida de milhares de pessoas.
+        Cada doação é um passo em direção a um Brasil sem fome. A sua generosidade nos ajuda
+        a continuar esse trabalho tão importante.
+    </p>
+    <p><strong>Você é a razão do nosso sucesso!</strong></p>
+</section>
+
+<section class="sobre-secao">
+    <h2>Fale com a gente</h2>
+    <p>
+        Caso queira falar com o ConectaCausa, nosso e-mail de contato é
+        <a href="mailto:contato@conectacausa.org">contato@conectacausa.org</a>.
+    </p>
+</section>
+
 {% endblock %}

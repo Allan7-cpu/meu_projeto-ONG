@@ -277,6 +277,98 @@ a:hover {
     transform: scale(0.97);
 }
 
+/* ===== Página Sobre / Quem somos ===== */
+.sobre-topo {
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    border-bottom: 3px solid #E4D3F7;
+}
+
+.sobre-topo h1 {
+    margin: 0 0 10px;
+    color: #67339A;
+    font-size: 2.6rem;
+}
+
+.sobre-destaque {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.sobre-secao {
+    margin-bottom: 32px;
+}
+
+.sobre-secao h2 {
+    margin: 0 0 12px;
+    color: #4B1D70;
+    font-size: 1.5rem;
+}
+
+.sobre-secao p,
+.sobre-agradecimento p {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.sobre-item {
+    background: #FAF7FD;
+    border: 1px solid #E4D3F7;
+    border-top: 4px solid #7D42B0;
+    border-radius: 8px;
+    padding: 16px 18px;
+}
+
+.sobre-item h3 {
+    margin: 0 0 8px;
+    color: #67339A;
+    font-size: 1.15rem;
+}
+
+.sobre-item p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.sobre-agradecimento {
+    background: #F1E8FA;
+    border-left: 5px solid #67339A;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 32px;
+}
+
+.sobre-agradecimento h2 {
+    margin: 0 0 12px;
+    color: #4B1D70;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .sobre-topo h1 {
+        font-size: 2rem;
+    }
+
+    .sobre-destaque {
+        font-size: 1.1rem;
+    }
+
+    .sobre-agradecimento {
+        padding: 16px;
+    }
+}
+
 @media (max-width: 600px) {
     .form-cadastro .linha,
     .form-cadastro .linha-endereco {
