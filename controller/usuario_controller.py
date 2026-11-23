@@ -12,8 +12,14 @@ service = UsuarioService()
 @usuario_bp.route("/registrar", methods=["GET","POST"])
 def registrar():
     if request.method == "POST":
-        usuario = Usuario(**request.form)        
-        service.cadastrar(usuario)
+        username = request.form.get("username", "").strip()
+        email = request.form.get("email", "").strip()
+        password = request.form.get("password", "")
+        confirmar_senha = request.form.get("confirmar_senha", "")
+        try:
+            service.cadastrar(username, email, password, confirmar_senha)
+        except ValueError as erro:
+            return render_template("mensagem.html", texto=str(erro))
         return render_template("login.html")
     else:
         return render_template("registrar.html")

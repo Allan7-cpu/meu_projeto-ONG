@@ -11,12 +11,21 @@ class UsuarioRepository:
         finally:
             session.close()
 
+    def existe(self, username, email):
+        session = Session()
+        try:
+            usuario = session.query(Usuario).filter(
+                (Usuario.username == username) | (Usuario.email == email)
+            ).first()
+            return usuario is not None
+        finally:
+            session.close()
+
     def login(self, username, senha):
         session = Session()
         try:
             usuario = session.query(Usuario).filter_by(username=username).first()
             if usuario and check_password_hash(usuario.password, senha):
-                # O objeto permanece utilizável após o fechamento da sessão.
                 session.expunge(usuario)
                 return usuario
             return None
