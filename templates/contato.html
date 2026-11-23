@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Contato</h1>
+    <p class="subtitulo">Tem alguma dúvida ou sugestão? Envie sua mensagem que responderemos em breve.</p>
+
+    {% if dados %}
+        <p class="aviso">{{ dados }}</p>
+    {% endif %}
+
+    <form method="POST" action="/contato" class="form-contato">
+        <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" maxlength="100" placeholder="Seu nome" required>
+        </div>
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" maxlength="250" placeholder="seu@email.com" required>
+        </div>
+        <div class="campo">
+            <label for="mensagem">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" rows="5" maxlength="1000" placeholder="Escreva sua mensagem..." required></textarea>
+        </div>
+        <button type="submit" class="btn-enviar">Enviar mensagem</button>
+    </form>
+{% endblock %}

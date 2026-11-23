@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaCausa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='imagens/logo_novaa.semfundo.png') }}" alt="Logotipo ConectaCausa">
+    </header>
+    <nav>
+        <a href="/">Página Principal</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
+        {% if current_user.is_authenticated %}
+            <a href="/cadastrar">Cadastrar ONG</a>
+            <a href="/listar">Listar ONGs</a>
+            <a href="/dashboard">Minha conta</a>
+            <a href="/logout">Sair</a>
+            <form method="GET" action="/pesquisar" class="pesquisa">
+                <input type="text" id="pesquisa" name="pesquisa" placeholder="Pesquisar ONG">
+                <button type="submit">Pesquisar</button>
+            </form>
+        {% else %}
+            <a href="/login">Entrar</a>
+            <a href="/registrar">Registrar</a>
+        {% endif %}
+        <a href="https://fatectq.cps.sp.gov.br/" class="link2" target="_blank" rel="noopener">Fatec</a>
+    </nav>
+    <main>
+        <div class="row">
+            <div class="card">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>2026 ConectaCausa - Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@conectacausa.org">contato@conectacausa.org</a></p>
+        <p>
+            <a href="#">Facebook</a> |
+            <a href="#">Instagram</a> |
+            <a href="#">WhatsApp</a>
+        </p>
+    </footer>
+</body>
+</html>

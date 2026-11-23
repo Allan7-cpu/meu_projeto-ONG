@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="dashboard">
+    <div class="dashboard-boasvindas">
+        <div>
+            <span class="dashboard-etiqueta">PAINEL CONECTA CAUSA</span>
+            <h1>Olá, {{ current_user.username }}! 💜</h1>
+            <p>Que bom ter você por aqui. Acompanhe as instituições cadastradas e gerencie suas informações.</p>
+        </div>
+        <div class="dashboard-simbolo" aria-hidden="true">♡</div>
+    </div>
+
+    <div class="dashboard-titulo">
+        <div>
+            <h2>Visão geral</h2>
+            <p>Indicadores atualizados com os dados cadastrados no sistema.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-indicadores">
+        <article class="indicador-card">
+            <div class="indicador-icone">♡</div>
+            <div>
+                <span class="indicador-numero">{{ total_ongs }}</span>
+                <span class="indicador-legenda">ONGs cadastradas</span>
+            </div>
+        </article>
+        <article class="indicador-card">
+            <div class="indicador-icone">♙</div>
+            <div>
+                <span class="indicador-numero">{{ total_usuarios }}</span>
+                <span class="indicador-legenda">Usuários registrados</span>
+            </div>
+        </article>
+    </div>
+
+    <div class="dashboard-conteudo">
+        <section class="dashboard-bloco">
+            <div class="bloco-cabecalho">
+                <div>
+                    <h2>Atalhos rápidos</h2>
+                    <p>Acesse as principais funções do cadastro.</p>
+                </div>
+            </div>
+            <div class="dashboard-atalhos">
+                <a class="atalho-card" href="{{ url_for('ong.cadastrar') }}">
+                    <span class="atalho-icone">＋</span>
+                    <strong>Cadastrar ONG</strong>
+                    <span>Adicionar uma instituição</span>
+                    <span class="atalho-seta">→</span>
+                </a>
+                <a class="atalho-card" href="{{ url_for('ong.listar') }}">
+                    <span class="atalho-icone">☷</span>
+                    <strong>Listar ONGs</strong>
+                    <span>Visualizar instituições</span>
+                    <span class="atalho-seta">→</span>
+                </a>
+                <a class="atalho-card" href="{{ url_for('ong.pesquisar') }}">
+                    <span class="atalho-icone">⌕</span>
+                    <strong>Pesquisar ONG</strong>
+                    <span>Encontrar um cadastro</span>
+                    <span class="atalho-seta">→</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="dashboard-bloco dashboard-recentes">
+            <div class="bloco-cabecalho">
+                <div>
+                    <h2>ONGs recentes</h2>
+                    <p>Últimas instituições adicionadas ao sistema.</p>
+                </div>
+                <a href="{{ url_for('ong.listar') }}">Ver todas →</a>
+            </div>
+            {% if ongs_recentes %}
+                <div class="lista-recentes">
+                    {% for ong in ongs_recentes %}
+                        <div class="ong-recente">
+                            <span class="ong-avatar">{{ ong.nome[:1]|upper }}</span>
+                            <div class="ong-recente-info">
+                                <strong>{{ ong.nome }}</strong>
+                                <span>{{ ong.cidade }}</span>
+                            </div>
+                            <a href="{{ url_for('ong.alterar', id=ong.id) }}" aria-label="Editar {{ ong.nome }}">Editar</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="dashboard-vazio">
+                    <span>♡</span>
+                    <strong>Nenhuma ONG cadastrada ainda</strong>
+                    <p>Quando uma instituição for cadastrada, ela aparecerá aqui.</p>
+                    <a class="dashboard-botao" href="{{ url_for('ong.cadastrar') }}">Cadastrar primeira ONG</a>
+                </div>
+            {% endif %}
+        </section>
+    </div>
+
+    <div class="dashboard-nota">
+        <strong>Conecta Causa</strong>
+        <span>Conectando pessoas, instituições e oportunidades de transformação.</span>
+    </div>
+</section>
+{% endblock %}
